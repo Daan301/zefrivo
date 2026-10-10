@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e9f2bc">
+  <meta name="description" content="Descoperă Zefrivo: Kiwi–Lime, Citrus și Mango Zero. Arome intense, gust fructat, fără zahăr și fără cofeină. Un concept de băutură răcoritoare carbogazoasă.">
+  <meta property="og:title" content="Zefrivo — Arome intense. Gust fructat.">
+  <meta property="og:description" content="Trei arome. Un univers de gust. Descoperă conceptul Zefrivo.">
+  <meta property="og:type" content="website">
+  <title>Zefrivo — Arome intense. Gust fructat. Fără zahăr.</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/kiwi-lime.png" as="image">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#continut">Mergi la conținut</a>
+  <header class="site-header">
+    <a class="wordmark" href="#" aria-label="Zefrivo — începutul paginii">ZEFRIV<span class="bubble-o" aria-hidden="true">O<i></i><i></i><i></i></span></a>
+    <nav aria-label="Navigație principală">
+      <a href="#arome">Arome</a>
+      <a href="#poveste">Povestea</a>
+      <a href="#intrebari">Întrebări</a>
+    </nav>
+    <a class="header-cta" href="#arome">Alege-ți aroma <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="continut">
+    <section id="arome" class="flavor-section" data-flavor="kiwi" aria-label="Descoperă aromele Zefrivo">
+      <div class="hero-intro page-width">
+        <div>
+          <p class="eyebrow"><span class="small-spark" aria-hidden="true">✳</span> UN UNIVERS DE GUST</p>
+          <h1>Arome intense.<br><span>Gust fructat.</span></h1>
+        </div>
+        <div class="hero-note">
+          <span class="zero-badge">FĂRĂ ZAHĂR</span>
+          <p>Trei arome cu personalitate.<br>Bule, culoare și gustul tău preferat.<br><strong>Fără cofeină.</strong></p>
+          <a class="text-link" href="#de-ce">Fă cunoștință cu Zefrivo <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <div class="carousel page-width" data-carousel tabindex="0" role="region" aria-roledescription="carusel" aria-label="Cele trei sortimente Zefrivo. Folosește săgețile pentru a schimba aroma.">
+        <div class="carousel-stage">
+          <div class="stage-word" aria-hidden="true" data-stage-word>KIWI–LIME</div>
+          <div class="orbit orbit-one" aria-hidden="true"></div>
+          <div class="orbit orbit-two" aria-hidden="true"></div>
+          <span class="stage-spark spark-left" aria-hidden="true">✳</span>
+          <span class="stage-spark spark-right" aria-hidden="true">✳</span>
+
+          <article class="product-frame" data-product="0" data-position="center" aria-hidden="false" aria-label="Kiwi–Lime, sortimentul afișat">
+            <div class="frame-content"><img class="product-bottle" src="assets/kiwi-lime.png" alt="Sticlă Zefrivo Kiwi–Lime de 500 ml" width="1024" height="1536" fetchpriority="high"></div>
+          </article>
+          <article class="product-frame" data-product="1" data-position="right" aria-hidden="true">
+            <div class="frame-content"><img class="product-bottle" src="assets/citrus.png" alt="" width="1024" height="1536" decoding="async"></div>
+          </article>
+          <article class="product-frame" data-product="2" data-position="left" aria-hidden="true">
+            <div class="frame-content"><img class="product-bottle" src="assets/mango-zero.png" alt="" width="1024" height="1536" decoding="async"></div>
+          </article>
+
+          <button class="carousel-arrow arrow-prev" type="button" data-direction="-1" aria-label="Arată aroma anterioară" aria-controls="flavor-description">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5m0 0 6-6m-6 6 6 6"/></svg>
+          </button>
+          <button class="carousel-arrow arrow-next" type="button" data-direction="1" aria-label="Arată aroma următoare" aria-controls="flavor-description">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m0 0-6-6m6 6-6 6"/></svg>
+          </button>
+        </div>
+
+        <div class="flavor-summary">
+          <div class="flavor-counter"><span data-counter>01</span><span class="counter-line"></span><span>03</span></div>
+          <div class="flavor-description" id="flavor-description" aria-live="polite" aria-atomic="true">
+            <p class="flavor-kicker" data-flavor-kicker>VERDE. VIVACE. FRUCTAT.</p>
+            <h2 data-flavor-name>Kiwi–Lime</h2>
+            <p class="flavor-copy" data-flavor-copy>Gustul fructat de kiwi întâlnește nota citrică de lime. O combinație jucăușă, cu bule și multă personalitate.</p>
+          </div>
+          <div class="flavor-detail"><span>BĂUTURĂ RĂCORITOARE<br>CARBOGAZOASĂ</span><span class="format-pill">500 ml <i aria-hidden="true">/</i> 2 L</span></div>
+        </div>
+
+        <div class="flavor-selector" role="group" aria-label="Alege sortimentul">
+          <button type="button" data-flavor-index="0" aria-pressed="true"><span class="selector-dot dot-kiwi" aria-hidden="true"></span>Kiwi–Lime</button>
+          <button type="button" data-flavor-index="1" aria-pressed="false"><span class="selector-dot dot-citrus" aria-hidden="true"></span>Citrus</button>
+          <button type="button" data-flavor-index="2" aria-pressed="false"><span class="selector-dot dot-mango" aria-hidden="true"></span>Mango Zero</button>
+        </div>
+        <p class="carousel-hint">Schimbă aroma cu săgețile <span aria-hidden="true">← →</span></p>
+      </div>
+      <noscript><p class="no-script">Activează JavaScript pentru carusel. Sortimentele Zefrivo sunt Kiwi–Lime, Citrus și Mango Zero.</p></noscript>
+    </section>
+
+    <div class="brand-ribbon" aria-label="Arome intense, gust fructat, fără zahăr, fără cofeină">
+      <span>Arome intense</span><i aria-hidden="true">✳</i><span>Gust fructat</span><i aria-hidden="true">✳</i><span>Fără zahăr</span><i aria-hidden="true">✳</i><span>Fără cofeină</span>
+    </div>
+
+    <section class="brand-section page-width" id="de-ce">
+      <div class="brand-heading">
+        <p class="eyebrow">ASTA E ZEFRIVO</p>
+        <h2>Tot gustul.<br><span>În felul tău.</span></h2>
+        <p class="section-lead">Un concept de băutură răcoritoare care pune aroma în centrul fiecărui moment.</p>
+        <div class="bubble-art" aria-hidden="true"><span></span><span></span><span></span><span></span><span>z.</span></div>
+      </div>
+      <div class="brand-points">
+        <div class="brand-point"><span class="point-number">01</span><div><h3>Arome cu personalitate</h3><p>De la combinația Kiwi–Lime la notele de citrice și gustul tropical de mango. Trei interpretări ale plăcerii de a te răcori.</p></div></div>
+        <div class="brand-point"><span class="point-number">02</span><div><h3>Bule pentru momentul tău</h3><p>O pauză, o masă cu prietenii sau o zi care cere puțină culoare. Descoperă aroma care te inspiră.</p></div></div>
+        <div class="brand-point"><span class="point-number">03</span><div><h3>Fără zahăr. Fără cofeină.</h3><p>Conceptul Zefrivo folosește îndulcitori non-calorici și arome de fructe, într-o băutură carbogazoasă.</p></div></div>
+      </div>
+    </section>
+
+    <section class="formats-section page-width" aria-labelledby="formats-title">
+      <div class="section-title-row"><div><p class="eyebrow">GUSTUL ARE LOC ÎN ZIUA TA</p><h2 id="formats-title">Două formate.<br>Aceeași personalitate.</h2></div><p>Gama este concepută pentru<br>momente mici și întâlniri mari.</p></div>
+      <div class="format-grid">
+        <article class="format-card format-small"><div><span class="format-overline">PENTRU MOMENTUL TĂU</span><h3>500<span>ml</span></h3><p>Formatul de luat cu tine,<br>oriunde te duce ziua.</p></div><span class="format-flower" aria-hidden="true">✳</span></article>
+        <article class="format-card format-large"><div><span class="format-overline">PENTRU MOMENTE ÎMPREUNĂ</span><h3>2<span>L</span></h3><p>Gustul de împărțit la masă,<br>cu oamenii tăi preferați.</p></div><span class="format-ring" aria-hidden="true"></span></article>
+      </div>
+    </section>
+
+    <section class="story-section" id="poveste" aria-labelledby="story-title">
+      <div class="story-inner page-width">
+        <div><p class="eyebrow">POVESTEA NOASTRĂ</p><h2 id="story-title">O idee simplă.<br>Un gust cu<br><em>personalitate.</em></h2></div>
+        <div class="story-copy"><span class="story-symbol" aria-hidden="true">✳</span><p>Zefrivo a pornit de la dorința de a crea o băutură cu arome intense de fructe, fără zahăr și fără cofeină.</p><p>Am construit în jurul acestei idei o identitate vizuală plină de culoare și trei sortimente: Kiwi–Lime, Citrus și Mango Zero.</p><p class="concept-note">Proiect conceptual dezvoltat pentru o lucrare de licență. Ambalajele și prezentările ilustrează gama propusă.</p></div>
+      </div>
+    </section>
+
+    <section class="faq-section page-width" id="intrebari" aria-labelledby="faq-title">
+      <div><p class="eyebrow">BINE DE ȘTIUT</p><h2 id="faq-title">Curiozități?<br>Avem răspunsuri.</h2><p class="section-lead">Câteva lucruri despre<br>universul Zefrivo.</p></div>
+      <div class="faq-list">
+        <details><summary>Ce arome are Zefrivo?<span aria-hidden="true">+</span></summary><p>Gama propusă include Kiwi–Lime, Citrus și Mango Zero. Le poți explora în caruselul de mai sus.</p></details>
+        <details><summary>Zefrivo este o băutură energizantă?<span aria-hidden="true">+</span></summary><p>Zefrivo este conceput ca o băutură răcoritoare carbogazoasă cu aromă de fructe, fără cofeină.</p></details>
+        <details><summary>Cu ce este îndulcită băutura?<span aria-hidden="true">+</span></summary><p>Conceptul folosește îndulcitori non-calorici. Lista finală de ingrediente și valorile nutriționale vor fi stabilite după validarea rețetelor.</p></details>
+        <details><summary>În ce formate este concepută gama?<span aria-hidden="true">+</span></summary><p>Ambalajele propuse sunt sticle PET de 500 ml și 2 L, pentru fiecare dintre cele trei arome.</p></details>
+        <details><summary>Pot cumpăra Zefrivo acum?<span aria-hidden="true">+</span></summary><p>Zefrivo se află în etapa de concept, realizat în cadrul unei lucrări de licență. Acest site prezintă identitatea brandului și gama propusă.</p></details>
+      </div>
+    </section>
+    <section class="closing-section page-width" aria-label="Explorează gama"><p>Ce culoare are<br><span>gustul tău?</span></p><a class="round-link" href="#arome" aria-label="Înapoi la caruselul de arome"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a></section>
+  </main>
+
+  <footer class="site-footer page-width"><a class="wordmark footer-wordmark" href="#" aria-label="Zefrivo — începutul paginii">ZEFRIV<span class="bubble-o" aria-hidden="true">O<i></i><i></i><i></i></span></a><p>Arome intense. Gust fructat. Fără zahăr.</p><span>ZEFRIVO · CONCEPT DE BRAND</span></footer>
+</body>
+</html>
