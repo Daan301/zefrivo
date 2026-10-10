@@ -29,7 +29,6 @@ export function createCarousel(root, section) {
   const name=root.querySelector('[data-flavor-name]');
   const copy=root.querySelector('[data-flavor-copy]');
   const kicker=root.querySelector('[data-flavor-kicker]');
-  const counter=root.querySelector('[data-counter]');
   const stageWord=root.querySelector('[data-stage-word]');
 
   function select(index) {
@@ -41,7 +40,6 @@ export function createCarousel(root, section) {
     name.textContent=product.name;
     copy.textContent=product.description;
     kicker.textContent=product.kicker;
-    counter.textContent=String(activeIndex+1).padStart(2,'0');
     stageWord.textContent=product.stageWord;
     frames.forEach((frame,index)=>{
       const shown=index===activeIndex;

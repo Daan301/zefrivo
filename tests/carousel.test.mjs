@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import {resolve,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {PRODUCTS,normalizeIndex,framePositions,keyboardIndex} from '../dist/carousel.mjs';
+import {PRODUCTS,normalizeIndex,framePositions,keyboardIndex,createCarousel} from '../dist/carousel.mjs';
 
 test('navigation wraps through all three products in both directions',()=>{
   let next=0;
@@ -32,6 +32,41 @@ test('keyboard navigation supports wrapping, first/last and leaves unrelated key
   assert.equal(keyboardIndex('End',0),2);
   assert.equal(keyboardIndex('Tab',1),null);
   assert.equal(keyboardIndex('Enter',1),null);
+});
+
+test('carousel initializes and navigates without a visible slide counter',()=>{
+  const element=(dataset={})=>({
+    dataset,attributes:{},events:{},textContent:'',
+    setAttribute(name,value){this.attributes[name]=value;},
+    addEventListener(type,listener){this.events[type]=listener;}
+  });
+  const frames=PRODUCTS.map(()=>{
+    const frame=element(),image={alt:''};
+    frame.querySelector=selector=>selector==='img'?image:null;
+    return frame;
+  });
+  const choices=PRODUCTS.map((_,index)=>element({flavorIndex:String(index)}));
+  const arrows=[element({direction:'-1'}),element({direction:'1'})];
+  const fields=Object.fromEntries(['[data-flavor-name]','[data-flavor-copy]','[data-flavor-kicker]','[data-stage-word]','.carousel-stage'].map(selector=>[selector,element()]));
+  const root=element();
+  root.querySelector=selector=>fields[selector]??null;
+  root.querySelectorAll=selector=>({'[data-product]':frames,'[data-flavor-index]':choices,'[data-direction]':arrows}[selector]??[]);
+  const section={dataset:{},style:{setProperty(name,value){this[name]=value;}}};
+
+  const carousel=createCarousel(root,section);
+  assert.equal(carousel.index,0);
+  arrows[0].events.click();
+  assert.equal(carousel.index,2);
+  assert.equal(fields['[data-flavor-name]'].textContent,'Mango Zero');
+  assert.equal(section.style['--scene'],PRODUCTS[2].theme.scene);
+  assert.deepEqual(frames.map(frame=>frame.attributes['aria-hidden']),['true','true','false']);
+  choices[1].events.click();
+  assert.equal(fields['[data-flavor-copy]'].textContent,PRODUCTS[1].description);
+  let prevented=false;
+  root.events.keydown({key:'ArrowRight',preventDefault(){prevented=true;}});
+  assert.equal(carousel.index,2);
+  assert.equal(prevented,true);
+  assert.equal(choices[2].attributes['aria-pressed'],'true');
 });
 
 function luminance(hex){
@@ -67,7 +102,7 @@ test('all local HTML and CSS assets exist and internal links point to real secti
   const css=readFileSync(resolve(base,'styles.css'),'utf8');
   const ids=new Set([...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]));
   const assets=[...html.matchAll(/(?:src|href)="([^"#][^"]*)"/g),...css.matchAll(/url\('([^']+)'\)/g)].map(m=>m[1]);
-  for(const asset of assets) assert.ok(existsSync(resolve(base,asset)),asset);
+  for(const asset of assets) assert.ok(existsSync(resolve(base,asset.split('?')[0])),asset);
   for(const [,id] of html.matchAll(/href="#([^"]+)"/g))assert.ok(ids.has(id),id);
   for(const product of PRODUCTS)assert.ok(existsSync(resolve(base,product.image)));
 });

@@ -1,4 +1,4 @@
-import {createCarousel} from './carousel.mjs';
+import {createCarousel} from './carousel.mjs?v=20261010-2';
 
 const root=document.querySelector('[data-carousel]');
 const section=document.querySelector('.flavor-section');
